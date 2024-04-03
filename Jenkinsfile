@@ -2,9 +2,9 @@ pipeline {
     agent any
     stages {
         stage('deploy') {
-            steps {
-                sh 'kubectl version'
-            }
+           script {
+          kubernetesDeploy(configs: "deploy.yaml", "ser.yaml")
+        }
         }
     }
 }
