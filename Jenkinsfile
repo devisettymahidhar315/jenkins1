@@ -1,18 +1,17 @@
 #!/usr/bin/env groovy
 pipeline {
-    agent any
+    agent {
+        docker {
+            image 'your-docker-image-with-kubectl-installed'
+        }
+    }
     stages {
-       
-        stage("deploy") {
+        stage('deploy') {
             steps {
-                script {
-                   
-                      
-                        sh "kubectl apply -f deploy.yaml"
-                        sh "kubectl apply -f ser.yaml"
-                    
-                }
+                sh 'kubectl apply -f deploy.yaml'
+                sh 'kubectl apply -f ser.yaml'
             }
         }
     }
 }
+
