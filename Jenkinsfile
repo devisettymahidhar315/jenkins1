@@ -1,6 +1,9 @@
-#!/usr/bin/env groovy
 pipeline {
-   agent any
+    agent any
+    tools {
+        // Define the Kubernetes CLI tool installation
+        kubectl 'Kubernetes CLI'
+    }
     stages {
         stage('deploy') {
             steps {
@@ -10,4 +13,3 @@ pipeline {
         }
     }
 }
-
