@@ -4,7 +4,7 @@ pipeline {
         stage('deploy') {
             steps {
                 script {
-                    kubernetesDeploy(configs: ["deploy.yaml", "ser.yaml"])
+                    kubernetesDeploy(configs: "deployment.yaml", "service.yaml")
                 }
             }
         }
